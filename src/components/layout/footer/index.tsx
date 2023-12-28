@@ -1,6 +1,6 @@
-import AppleStoreIconSVG from "./icons/appleStoreIconSVG";
+import AppleStoreIconSVG from "@/components/icons/appleStoreIconSVG";
 import FooterSection from "./footerSection";
-import GooglePlayIconSVG from "./icons/googlePlayIconSVG";
+import GooglePlayIconSVG from "@/components/icons/googlePlayIconSVG";
 import Socials from "./socials";
 import Copyright from "./copyright";
 

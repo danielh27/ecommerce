@@ -1,7 +1,7 @@
 import Link from "next/link";
-import FacebookIconSVG from "./icons/facebookIconSVG";
-import InstagramIconSVG from "./icons/instagramIconSVG";
-import TwitterIconSVG from "./icons/twitterIconSVG";
+import FacebookIconSVG from "@/components/icons/facebookIconSVG";
+import InstagramIconSVG from "@/components/icons/instagramIconSVG";
+import TwitterIconSVG from "@/components/icons/twitterIconSVG";
 
 export default function Socials() {
   return (
