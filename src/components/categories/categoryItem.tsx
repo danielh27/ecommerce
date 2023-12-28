@@ -17,7 +17,6 @@ const CategoryItem = ({ name, imageURL, onClick }: CategoryItemProps) => {
         height={300}
         className="rounded" />
         
-        
       <h3 className="text-center text-sm my-5 font-semibold">
         {name}
       </h3>
