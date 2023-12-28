@@ -13,13 +13,9 @@ const Cart: React.FC = () => {
     <>
       <OpenCartButton onClick={openCart} />
     
-      <SideModal isOpen={isOpen} onClose={closeCart} title="Carrito">
+      <SideModal isOpen={isOpen} onClose={closeCart} title="Resumen de tu pedido">
         <p>Contenido del carrito</p>
         
-        <div>
-          <h2>Test</h2>
-          <button onClick={closeCart}>Cerrar</button>
-        </div>
       </SideModal>
     </>
   );

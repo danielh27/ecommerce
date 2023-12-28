@@ -1,5 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import ArrowIconSVG from "./icons/arrowIconSVG";
 
 interface SideModalProps {
   isOpen: boolean;
@@ -34,8 +35,15 @@ const SideModal = ({ isOpen, onClose, title, children }: SideModalProps) => {
           leaveFrom="translate-x-0"
           leaveTo="translate-x-full"
         >
-          <Dialog.Panel className="fixed bottom-0 right-0 top-0 h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl dark:border-neutral-700 dark:bg-black/80 dark:text-white sm:w-[430px]">
-            <Dialog.Title>{title}</Dialog.Title>
+          <Dialog.Panel className="fixed bottom-0 right-0 top-0 h-full w-full flex-col border-l border-neutral-200 bg-white/85 text-black backdrop-blur-xl dark:border-neutral-700 dark:bg-black/80 dark:text-white sm:w-[430px]">
+            <div className="flex border-b border-gray-300 p-3">
+              <div onClick={onClose} className="flex justify-center items-center rotate-90 cursor-pointer">
+                <ArrowIconSVG />
+              </div>
+              <Dialog.Title className="flex items-center justify-center w-full uppercase font-semibold">
+                {title}
+              </Dialog.Title>
+            </div>
             
             {children}
           </Dialog.Panel>
