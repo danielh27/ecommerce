@@ -27,10 +27,10 @@ const SideModal = ({ isOpen, onClose, title, children }: SideModalProps) => {
         
         <Transition.Child
           as={Fragment}
-          enter="transition-all ease-in-out duration-300"
+          enter="transition-all ease-in-out duration-500"
           enterFrom="translate-x-full"
           enterTo="translate-x-0"
-          leave="transition-all ease-in-out duration-200"
+          leave="transition-all ease-in-out duration-300"
           leaveFrom="translate-x-0"
           leaveTo="translate-x-full"
         >

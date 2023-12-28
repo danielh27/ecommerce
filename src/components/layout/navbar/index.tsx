@@ -1,8 +1,10 @@
 import Link from "next/link"
 import Logo from "../logo"
 import CouponIconSVG from "./couponIconSVG"
-import CartIconSVG from "./cartIconSVG"
 import AccountIconSVG from "./accountIconSVG"
+import Cart from "@/components/cart"
+import OpenCart from "@/components/cart/openCartButton"
+import { Suspense } from "react"
 
 export default function Navbar() {
   return (
@@ -40,9 +42,11 @@ export default function Navbar() {
         <Link href="/login">
           <AccountIconSVG />
         </Link>
-        <Link href="/cart">
-          <CartIconSVG />
-        </Link>
+        <div>
+          <Suspense fallback={<OpenCart />}>
+            <Cart />
+          </Suspense>
+        </div>
       </div>
     </header>
   )
