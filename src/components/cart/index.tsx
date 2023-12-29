@@ -1,23 +1,17 @@
-"use client";
+import { getCart } from "@/lib/spree";
+import { cookies } from "next/headers";
+import CartModal from "./modal";
 
-import { useState } from "react";
-import SideModal from "../sideModal";
-import OpenCartButton from "./openCartButton";
-
-const Cart: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const openCart = () => setIsOpen(true);
-  const closeCart = () => setIsOpen(false);
+const Cart: React.FC = async () => {
+  const cartToken = cookies().get('cartToken')?.value;
+  
+  if (cartToken) {
+    const res = await getCart(cartToken);
+    console.log(res.body);
+  }
   
   return (
-    <>
-      <OpenCartButton onClick={openCart} />
-    
-      <SideModal isOpen={isOpen} onClose={closeCart} title="Resumen de tu pedido">
-        <p>Contenido del carrito</p>
-        
-      </SideModal>
-    </>
+    <CartModal />
   );
 }
 
