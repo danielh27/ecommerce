@@ -3,11 +3,10 @@ import Image from "next/image";
 interface CategoryItemProps {
   name: string;
   imageURL: string;
-  imageShape?: string;
   onClick?: () => void;
 }
 
-const CategoryItem = ({ name, imageURL, onClick }: CategoryItemProps) => {  
+const CategoryItem = ({ name, imageURL, onClick }: CategoryItemProps) => {
   return (
     <div className="category-item rounded border-b max-w-52 h-full shadow-sm hover:scale-105 transition" onClick={onClick}>
       <Image
@@ -20,7 +19,6 @@ const CategoryItem = ({ name, imageURL, onClick }: CategoryItemProps) => {
       <h3 className="text-center text-sm my-5 font-semibold">
         {name}
       </h3>
-      
     </div>
   );
 }

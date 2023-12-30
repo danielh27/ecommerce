@@ -1,5 +1,12 @@
+import CategoriesCarousel from '@/components/categories-carousel'
+import categories from '@/test-data/categories.json'
+
 export default function Menu() {
+  
+  
   return (
-    <h1>Menu</h1>
+    <>
+      <CategoriesCarousel categories={categories} />
+    </>
   )
 }
