@@ -10,7 +10,7 @@ const CategoriesCarousel = ({categories}: { categories: Category[] }) => {
         {categories.map((category) => (
           <div className="flex flex-col items-center justify-between gap-2 pb-2 cursor-pointer" key={category.name}>
             <Image
-              src={category.image_url}
+              src={category.image_url || ''}
               alt={category.name}
               width={64}
               height={64}

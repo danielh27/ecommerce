@@ -10,7 +10,7 @@ const CategoryItem = ({ name, imageURL, onClick }: CategoryItemProps) => {
   return (
     <div className="category-item rounded border-b max-w-52 h-full shadow-sm hover:scale-105 transition" onClick={onClick}>
       <Image
-        src={imageURL}
+        src={imageURL || ''}
         alt={name}
         width={300}
         height={300}
