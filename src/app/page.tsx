@@ -7,7 +7,7 @@ export default async function Home() {
   
   return (
     <div className='w-full h-full p-4'>
-      <Label title="MENÚ" size='xl' divider={true} />
+      <Label title="MENÚ" divider={true} textClass='text-xl font-medium' />
       <HomeCategories categories={categories} />
     </div>
   )

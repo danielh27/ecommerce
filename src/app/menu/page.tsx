@@ -1,5 +1,5 @@
 import CategoriesCarousel from '@/components/categories-carousel'
-import Label from '@/components/label';
+import MenuSection from '@/components/categories/menuSection';
 import { getAllCategories } from '@/lib/spree'
 
 export default async function Menu() {
@@ -13,11 +13,9 @@ export default async function Menu() {
           <h2 className='text-3xl font-semibold'>MENÚ</h2>
         </section>
 
-        <section className='container mx-auto px-5 mt-10'>
-          {categories.map((category) => (
-            <div className='' key={category.name}>
-              <Label title={category.name} size='lg' textClass='whitespace-nowrap' divider={true} dividerClass='border-gray-300' />
-            </div>
+        <section className='container mx-auto px-2 sm:px-5 mt-10'>
+          {categories.map((category, index) => (
+            <MenuSection category={category} key={category.name} index={index} />
           ))}
         </section>
     </div>

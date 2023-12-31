@@ -5,6 +5,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.getduna.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images-staging.getduna.com',
       }
     ]
   },

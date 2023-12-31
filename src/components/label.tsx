@@ -2,16 +2,15 @@ import clsx from "clsx";
 
 interface LabelProps {
   title: string;
-  size?: string;
   textClass?: string;
   dividerClass?: string;
   divider?: boolean;
 }
 
-const Label = ({title, size, divider, textClass, dividerClass}: LabelProps) => {
+const Label = ({title, divider, textClass, dividerClass}: LabelProps) => {
   return (
     <div className="flex items-center gap-3">
-      <span className={clsx(`text-${size || 'base'}`, 'font-medium', textClass)}>
+      <span className={clsx(textClass)}>
         {title}
       </span>
       

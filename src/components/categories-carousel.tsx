@@ -16,7 +16,7 @@ const CategoriesCarousel = ({categories}: { categories: Category[] }) => {
               height={64}
               className="rounded-full min-w-16 object-contain shadow-[0_2px_6px_rgba(0,0,0,0.25)] hidden sm:block" />
             
-            <Label title={category.name} size="sm" textClass="whitespace-nowrap font-semibold"/>
+            <Label title={category.name} textClass="text-sm whitespace-nowrap font-semibold"/>
           </div>
         ))}
       </div>

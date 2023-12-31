@@ -1,4 +1,5 @@
-import categories from '@/test-data/categories.json'
+import { Category } from '@/interfaces/categories';
+import { Product } from '@/interfaces/products';
 
 interface SpreeFetchOptions {
   endpoint: string;
@@ -71,13 +72,22 @@ export async function addToCart(token: string, variantId: string, quantity: numb
   return response;
 }
 
-export async function getAllCategories() {
-  // const response = await spreeFetch({
-  //   endpoint: 'http://localhost:8000/api/v2/storefront/categories',
-  // });
+export async function getAllCategories(): Promise<Category[]> {
+  const response = await spreeFetch({
+    endpoint: 'http://localhost:8000/api/v2/storefront/categories',
+  });
   
-  // Test data
-  const response = categories;
+  return response.body;
+}
+
+export async function getProductsByCategory(categoryId: number): Promise<Product[]> {
+  const response = await spreeFetch({
+    endpoint: `http://localhost:8000/shop/products`,
+    method: 'POST',
+    body: {
+      taxon_id: categoryId,
+    }
+  });
   
-  return response;
+  return response.body.products;
 }
