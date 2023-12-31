@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
 import { Suspense } from 'react'
+import clsx from 'clsx'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={clsx(inter.className, 'text-slate-800')}>
         <Navbar />
         <Suspense>
           <main className='min-h-dvh'>{children}</main>
