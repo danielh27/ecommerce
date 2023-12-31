@@ -18,7 +18,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className={inter.className}>
         <Navbar />
         <Suspense>
-          <main>{children}</main>
+          <main className='min-h-dvh'>{children}</main>
         </Suspense>
         <Footer />
       </body>

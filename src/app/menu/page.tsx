@@ -1,12 +1,12 @@
 import CategoriesCarousel from '@/components/categories-carousel'
-import categories from '@/test-data/categories.json'
+import { getAllCategories } from '@/lib/spree'
 
-export default function Menu() {
-  
+export default async function Menu() {
+  const categories = await getAllCategories();
   
   return (
-    <>
-      <CategoriesCarousel categories={categories} />
-    </>
+    <div className='min-h-dvh bg-stone-100'>
+        <CategoriesCarousel categories={categories} />
+    </div>
   )
 }

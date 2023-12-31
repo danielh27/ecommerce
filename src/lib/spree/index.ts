@@ -1,3 +1,5 @@
+import categories from '@/test-data/categories.json'
+
 interface SpreeFetchOptions {
   endpoint: string;
   body?: any;
@@ -65,6 +67,17 @@ export async function addToCart(token: string, variantId: string, quantity: numb
       quantity,
     },
   });
+  
+  return response;
+}
+
+export async function getAllCategories() {
+  // const response = await spreeFetch({
+  //   endpoint: 'http://localhost:8000/api/v2/storefront/categories',
+  // });
+  
+  // Test data
+  const response = categories;
   
   return response;
 }
