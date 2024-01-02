@@ -13,9 +13,9 @@ export default async function Menu() {
           <h2 className='text-3xl font-semibold'>MENÚ</h2>
         </section>
 
-        <section className='container mx-auto px-2 sm:px-5 mt-10'>
+        <section className='container mx-auto px-3 sm:px-5 mt-10'>
           {categories.map((category, index) => (
-            <MenuSection category={category} key={category.name} index={index} />
+            <MenuSection key={category.name}  category={category} index={index} />
           ))}
         </section>
     </div>

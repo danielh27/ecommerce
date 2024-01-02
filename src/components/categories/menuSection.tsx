@@ -1,13 +1,59 @@
-import { Category } from "@/interfaces/categories";
-import Label from "../label";
-import Card from "../product/card";
-import SkeletonCard from "../product/skeleton";
-import { getProductsByCategory } from "@/lib/spree";
+"use client"
 
-const MenuSection = async ({ category, index } : { category: Category, index: number }) => {
-  const products = await getProductsByCategory(category.id);
+import { useEffect, useState } from 'react';
+import { Category } from '@/interfaces/categories';
+import Label from '../label';
+import Card from '../product/card';
+import SkeletonCard from '../product/skeleton';
+import { getProductsByCategory } from '@/lib/spree';
+import { Product } from '@/interfaces/products';
+import clsx from 'clsx';
+
+const LoadingSection = ({ count }: { count: number }) => (
+  <>
+    {Array(count)
+      .fill(0)
+      .map((_, idx) => (
+        <SkeletonCard key={idx} />
+      ))}
+  </>
+);
+
+const ProductSection = ({ products, animate }: { products: Product[]; animate: boolean }) => (
+  <>
+    {products.map((product) => (
+      <div
+        key={product.name}
+        className={clsx('transition-opacity duration-500 ease-in-out', animate ? 'opacity-100' : 'opacity-0')}
+      >
+        <Card product={product} />
+      </div>
+    ))}
+  </>
+);
+
+const MenuSection = ({ category, index }: { category: Category; index: number }) => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [animate, setAnimate] = useState(false);
   const productsCount = category.products_count;
-  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const productsData = await getProductsByCategory(category.id);
+        setProducts(productsData);
+        setTimeout(() => setAnimate(true), 40);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [category.id]);
+
   return (
     <div key={category.name}>
       <Label
@@ -15,20 +61,15 @@ const MenuSection = async ({ category, index } : { category: Category, index: nu
         textClass='text-lg whitespace-nowrap font-medium'
         divider={true}
         dividerClass='border-gray-300' />
-    
-    <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 py-7'>
-      {index < 2 ? (
-        products.map((product) => (
-          <Card product={product} key={product.name} />
-        ))
-      ) : (
-        Array(productsCount).fill(0).map((_, index) => (
-          <SkeletonCard key={index} />
-        ))
-      )}
+
+      <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 py-7'>
+        {loading
+          ? <LoadingSection count={productsCount} />
+          : <ProductSection products={products} animate={animate} />
+        }
+      </div>
     </div>
-  </div>
-  )
+  );
 };
 
 export default MenuSection;
