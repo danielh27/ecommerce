@@ -8,6 +8,7 @@ import SkeletonCard from '../product/skeleton';
 import { getProductsByCategory } from '@/lib/spree';
 import { Product } from '@/interfaces/products';
 import clsx from 'clsx';
+import { useInView } from 'react-intersection-observer';
 
 const LoadingSection = ({ count }: { count: number }) => (
   <>
@@ -37,7 +38,11 @@ const MenuSection = ({ category, index }: { category: Category; index: number })
   const [loading, setLoading] = useState(true);
   const [animate, setAnimate] = useState(false);
   const productsCount = category.products_count;
-
+  
+  const { ref, inView } = useInView({
+    rootMargin: '0px 0px 100px 0px',
+  });
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,12 +55,15 @@ const MenuSection = ({ category, index }: { category: Category; index: number })
         setLoading(false);
       }
     };
+    
+    if (inView && loading) {
+      fetchData();
+    }
 
-    fetchData();
-  }, [category.id]);
+  }, [inView, category.id, loading]);
 
   return (
-    <div key={category.name}>
+    <div key={category.name} ref={ref}>
       <Label
         title={category.name}
         textClass='text-lg whitespace-nowrap font-medium'
