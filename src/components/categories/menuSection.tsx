@@ -63,12 +63,14 @@ const MenuSection = ({ category, index }: { category: Category; index: number })
   }, [inView, category.id, loading]);
 
   return (
-    <div key={category.name} ref={ref}>
-      <Label
-        title={category.name}
-        textClass='text-lg whitespace-nowrap font-medium'
-        divider={true}
-        dividerClass='border-gray-300' />
+    <div
+      ref={ref}
+      key={category.name}
+      className="p-4 sm:p-5 bg-white rounded">
+        
+      <h2 className="font-bold text-lg sm:text-2xl whitespace-nowrap">
+        {category.name}
+      </h2>
 
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 sm:gap-4 py-7'>
         {loading
