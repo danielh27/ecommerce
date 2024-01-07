@@ -6,7 +6,7 @@ export default async function Home() {
   const categories = await getAllCategories();
   
   return (
-    <div className='w-full h-full p-4'>
+    <div className='w-full h-full container mx-auto px-3 sm:px-5 mt-5'>
       <Label title="MENÚ" divider={true} textClass='text-xl font-medium' />
       <HomeCategories categories={categories} />
     </div>
