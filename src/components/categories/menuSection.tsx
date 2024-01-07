@@ -70,7 +70,7 @@ const MenuSection = ({ category, index }: { category: Category; index: number })
         divider={true}
         dividerClass='border-gray-300' />
 
-      <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 py-7'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 sm:gap-4 py-7'>
         {loading
           ? <LoadingSection count={productsCount} />
           : <ProductSection products={products} animate={animate} />
