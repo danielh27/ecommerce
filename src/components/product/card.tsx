@@ -23,7 +23,7 @@ const Card = ({ product }: {product: Product}) => {
         <div className="mt-auto">
           <Label
             title={product.description}
-            textClass='text-xs line-clamp-3 font-semibold text-gray-400' />
+            textClass='text-xs line-clamp-2 font-semibold text-gray-400' />
         </div>
       </div>
     </Link>
