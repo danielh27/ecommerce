@@ -6,7 +6,7 @@ export default async function Menu() {
   const categories = await getAllCategories();
   
   return (
-    <div className='min-h-dvh bg-stone-100'>
+    <>
       <CategoriesCarousel categories={categories} />
 
       <section className='flex flex-col gap-4 container mx-auto px-3 sm:px-5 py-8'>
@@ -14,6 +14,6 @@ export default async function Menu() {
           <MenuSection key={category.name}  category={category} index={index} />
         ))}
       </section>
-    </div>
+    </>
   )
 }

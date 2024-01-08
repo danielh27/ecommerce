@@ -19,7 +19,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className={clsx(inter.className, 'text-slate-800')}>
         <Navbar />
         <Suspense>
-          <main className='min-h-dvh'>{children}</main>
+          <main className='bg-stone-100 min-h-dvh'>
+            {children}
+          </main>
         </Suspense>
         <Footer />
       </body>
