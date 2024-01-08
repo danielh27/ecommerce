@@ -91,3 +91,11 @@ export async function getProductsByCategory(categoryId: number): Promise<Product
   
   return response.body.products;
 }
+
+export async function getProduct(slug: string): Promise<Product> {
+  const response = await spreeFetch({
+    endpoint: `http://localhost:8000/api/v2/storefront/products/${slug}`,
+  });
+  
+  return response.body;
+} 
