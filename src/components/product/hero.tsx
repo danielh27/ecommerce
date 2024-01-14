@@ -11,7 +11,7 @@ const Hero = ({ product }: { product: Product }) => {
           alt={product.name}
           width={300}
           height={300}
-          className="w-full h-auto" />
+          className="w-full h-auto object-scale-down" />
       </div>
       
       <div className="flex flex-col gap-2">
