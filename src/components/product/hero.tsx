@@ -4,7 +4,7 @@ import Label from "../label";
 
 const Hero = ({ product }: { product: Product }) => {
   return (
-    <div className="bg-white rounded p-4">
+    <div className="bg-white rounded-2xl p-4">
       <div>
         <Image
           src={product.image_url}

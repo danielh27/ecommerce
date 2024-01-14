@@ -1,4 +1,27 @@
-export interface Product {
+export type ModifierOption = {
+  id: number;
+  group_id: number;
+  name: string;
+  position: number;
+  active: boolean;
+  value: string;
+  max_options: number | null;
+  min_options: number | null;
+}
+
+export type ModifierGroup = {
+  id: number;
+  name: string;
+  active: boolean;
+  form_type: "radio" | "checkbox" | "numeric";
+  position: number;
+  max_options: number;
+  min_options: number;
+  caption: string;
+  options: ModifierOption[];
+}
+
+export type Product = {
   id: number;
   name: string;
   description: string;
@@ -11,4 +34,5 @@ export interface Product {
   display_price: string;
   available_by_schedule: boolean;
   belongs_to_coupon: boolean;
+  modifier_groups: ModifierGroup[];
 }
