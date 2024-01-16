@@ -13,12 +13,23 @@ export type ModifierGroup = {
   id: number;
   name: string;
   active: boolean;
-  form_type: "radio" | "checkbox" | "numeric";
+  form_type: "radio" | "checkbox" | "number";
   position: number;
   max_options: number;
   min_options: number;
   caption: string;
   options: ModifierOption[];
+}
+
+export type RelatedProductOption = {
+  id: number;
+  name: string;
+  price: number;
+  display_price: string;
+}
+
+export type RelatedProductsGroup = Omit<ModifierGroup, 'options'> & {
+  options: RelatedProductOption[];
 }
 
 export type Product = {
@@ -35,4 +46,5 @@ export type Product = {
   available_by_schedule: boolean;
   belongs_to_coupon: boolean;
   modifier_groups: ModifierGroup[];
+  related_products: RelatedProductsGroup[];
 }
