@@ -15,7 +15,7 @@ const Hero = ({ product }: { product: Product }) => {
       </div>
       
       <div className="flex flex-col gap-2">
-        <Label title={product.display_price} textClass="text-xl font-bold"/>
+        <Label title={product.display_price} textClass="text-xl font-bold text-rose-600"/>
         
         <h1 className="text-xl font-bold">
           {product.name}
