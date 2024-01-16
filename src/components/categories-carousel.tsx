@@ -3,7 +3,7 @@ import Label from "./label";
 
 const CategoriesCarousel = ({categories}: { categories: Category[] }) => {
   return (
-    <div className="py-3 px-6 bg-white sticky top-0">
+    <div className="py-3 px-6 bg-white sticky top-0 z-10">
       <div className="flex items-center overflow-x-auto gap-9 snap-x">
         
         {categories.map((category) => (

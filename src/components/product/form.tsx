@@ -11,7 +11,7 @@ const Form: React.FC<FormProps> = ({ product }) => {
       {product.modifier_groups.map((modifier_group) => (
         <ModifierGroup key={modifier_group.id} modifier_group={modifier_group} />
       ))}
-  </div>
+    </div>
   )
 }
 
