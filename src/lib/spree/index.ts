@@ -8,6 +8,8 @@ interface SpreeFetchOptions {
   headers?: HeadersInit;
 }
 
+const stagingTestUrl = 'https://staging-kfc-co.deuna.io';
+
 export async function spreeFetch<T>({ endpoint, body, method = 'GET', headers }: SpreeFetchOptions) {
   try {
     const response = await fetch(endpoint, {
@@ -37,7 +39,7 @@ export async function spreeFetch<T>({ endpoint, body, method = 'GET', headers }:
 
 export async function createCart() {
   const response = await spreeFetch({
-    endpoint: 'http://localhost:8000/api/v2/storefront/cart',
+    endpoint: `${stagingTestUrl}/api/v2/storefront/cart`,
     method: 'POST',
   });
   
@@ -46,7 +48,7 @@ export async function createCart() {
 
 export async function getCart(token: string) {
   const response = await spreeFetch({
-    endpoint: 'http://localhost:8000/api/v2/storefront/cart',
+    endpoint: `${stagingTestUrl}/api/v2/storefront/cart`,
     method: 'GET',
     headers: {
       'X-Spree-Order-Token': token,
@@ -58,7 +60,7 @@ export async function getCart(token: string) {
 
 export async function addToCart(token: string, variantId: string, quantity: number) {
   const response = await spreeFetch({
-    endpoint: 'http://localhost:8000/api/v2/storefront/cart/add_item',
+    endpoint: `${stagingTestUrl}/api/v2/storefront/cart/add_item`,
     method: 'POST',
     headers: {
       'X-Spree-Order-Token': token,
@@ -74,7 +76,7 @@ export async function addToCart(token: string, variantId: string, quantity: numb
 
 export async function getAllCategories(): Promise<Category[]> {
   const response = await spreeFetch({
-    endpoint: 'http://localhost:8000/api/v2/storefront/categories',
+    endpoint: `${stagingTestUrl}/api/v2/storefront/categories`,
   });
   
   return response.body;
@@ -82,7 +84,7 @@ export async function getAllCategories(): Promise<Category[]> {
 
 export async function getProductsByCategory(categoryId: number): Promise<Product[]> {
   const response = await spreeFetch({
-    endpoint: `http://localhost:8000/shop/products`,
+    endpoint: `${stagingTestUrl}/shop/products`,
     method: 'POST',
     body: {
       taxon_id: categoryId,
@@ -94,7 +96,7 @@ export async function getProductsByCategory(categoryId: number): Promise<Product
 
 export async function getProduct(slug: string): Promise<Product> {
   const response = await spreeFetch({
-    endpoint: `http://localhost:8000/api/v2/storefront/products/${slug}`,
+    endpoint: `${stagingTestUrl}/api/v2/storefront/products/${slug}`,
   });
   
   return response.body;
