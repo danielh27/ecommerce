@@ -17,11 +17,6 @@ export default function Navbar() {
         <nav>
           <ul className="hidden md:flex h-full gap-2 items-center">
             <li>
-              <Link href="/">
-                <p>Home</p>
-              </Link>
-            </li>
-            <li>
               <Link href="/menu">
                 <p>Menu</p>
               </Link>
