@@ -8,7 +8,7 @@ interface SpreeFetchOptions {
   headers?: HeadersInit;
 }
 
-const stagingTestUrl = 'https://staging-kfc-co.deuna.io';
+const stagingTestUrl = 'https://staging-kfc-ec.deuna.io';
 
 export async function spreeFetch<T>({ endpoint, body, method = 'GET', headers }: SpreeFetchOptions) {
   try {
