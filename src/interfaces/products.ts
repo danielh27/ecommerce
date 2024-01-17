@@ -23,6 +23,7 @@ export type ModifierGroup = {
 
 export type RelatedProductOption = {
   id: number;
+  group_id: number;
   name: string;
   price: number;
   display_price: string;

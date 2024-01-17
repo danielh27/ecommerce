@@ -5,6 +5,7 @@ import FormItemWrapper from "./form-item-wrapper";
 type InputProps = {
   id: string;
   label?: string;
+  priceLabel?: string;
   type: "radio" | "checkbox";
   value: string;
   checked: boolean;
@@ -60,7 +61,7 @@ const FormItemControl = ({ id, type, value, checked, disabled, onChange, groupId
   )
 }
 
-const FormItem: React.FC<InputProps> = ({ id, type, label, value, checked, disabled, groupIdentifier, onChange }) => {  
+const FormItem: React.FC<InputProps> = ({ id, type, label, priceLabel, value, checked, disabled, groupIdentifier, onChange }) => {  
   return (
     <FormItemWrapper>
       <label
@@ -68,8 +69,10 @@ const FormItem: React.FC<InputProps> = ({ id, type, label, value, checked, disab
         className="h-full flex items-center cursor-pointer justify-between" >
         
         <div className="text-sm">
-          {label}
+          <div>{label}</div>
+          {priceLabel && <div className="text-rose-600">+{priceLabel}</div>}
         </div>
+        
         
         <FormItemControl
           id={id}
